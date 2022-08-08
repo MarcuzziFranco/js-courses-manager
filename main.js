@@ -1,41 +1,12 @@
-let courses = [
-  {
-    id: 0,
-    name: "Logica",
-    vacancies: 20,
-    inscriptions: 5,
-  },
-  {
-    id: 1,
-    name: "Programacion",
-    vacancies: 25,
-    inscriptions: 0,
-  },
-  {
-    id: 2,
-    name: "Introduccion sitemas",
-    vacancies: 40,
-    inscriptions: 2,
-  },
-  {
-    id: 3,
-    name: "Ingles",
-    vacancies: 20,
-    inscriptions: 5,
-  },
-  {
-    id: 4,
-    name: "Organizacion computadoras",
-    vacancies: 30,
-    inscriptions: 10,
-  },
-  {
-    id: 5,
-    name: "Algebra",
-    vacancies: 16,
-    inscriptions: 7,
-  },
-];
+let countCoursesAdd = 0;
+let courses = [];
+
+let course = {
+  id: 5,
+  name: "Algebra",
+  vacancies: 16,
+  inscriptions: 7,
+};
 
 //Obtiene todos los cursos.
 const getCourses = () => {
@@ -51,15 +22,11 @@ const getCourse = (id) => {
 };
 
 //Permite agregar un curso a la lista.
-const addCourses = (name) => {
-  const newId = courses[courses.length - 1].id + 1;
-  console.log(newId);
-  courses.push({
-    id: newId,
-    name: name,
-    vacancies: 0,
-    inscriptions: 0,
-  });
+const addCourses = (newCourse) => {
+  let newId = courses.length;
+  newCourse.id = newId;
+  if (courses.length > 0) newId = courses[courses.length - 1].id + 1;
+  courses.push(newCourse);
 };
 
 //Permite eliminar un curos de la lista.
@@ -76,18 +43,25 @@ const updateCourse = (course) => {
   courses[indexElementUpdate] = course;
 };
 
-//Zona Testeo.
+// Logica ingreso Cursos
+const createCourses = () => {
+  countCoursesAdd = Number.parseInt(
+    prompt("Ingrese la cantidad de cursos a ingresar en el sistema")
+  );
+
+  for (let i = 0; i < countCoursesAdd; i++) {
+    //Creamos nuevo objecto curso.
+    let newCourse = {
+      name: prompt("Ingrese el nombre del curso " + (i + 1)),
+      vacancies: prompt("Ingrese el cupo para el curso"),
+      inscriptions: 0,
+    };
+
+    addCourses(newCourse);
+  }
+};
+
+createCourses();
 getCourses();
-addCourses("Electronica 1");
-addCourses("Electronica 2");
-deleteCourse(2);
-deleteCourse(1);
-getCourses();
-console.log("**************");
-updateCourse({
-  id: 5,
-  name: "Electronica 3",
-  vacancies: 22,
-  inscriptions: 3,
-});
-getCourses();
+
+console.log(courses);
