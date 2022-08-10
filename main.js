@@ -1,13 +1,7 @@
 let countCoursesAdd = 0;
 let courses = [];
 
-let course = {
-  id: 5,
-  name: "Algebra",
-  vacancies: 16,
-  inscriptions: 7,
-};
-
+//SERVICIOS
 //Obtiene todos los cursos.
 const getCourses = () => {
   for (let i = 0; i < courses.length; i++) {
@@ -44,24 +38,60 @@ const updateCourse = (course) => {
 };
 
 // Logica ingreso Cursos
-const createCourses = () => {
-  countCoursesAdd = Number.parseInt(
-    prompt("Ingrese la cantidad de cursos a ingresar en el sistema")
-  );
+const createCourses = (name, vacancies) => {
+  //Creamos nuevo objeto curso.
+  let newCourse = {
+    name: name,
+    vacancies: vacancies,
+    inscriptions: 0,
+  };
 
-  for (let i = 0; i < countCoursesAdd; i++) {
-    //Creamos nuevo objecto curso.
-    let newCourse = {
-      name: prompt("Ingrese el nombre del curso " + (i + 1)),
-      vacancies: prompt("Ingrese el cupo para el curso"),
-      inscriptions: 0,
-    };
-
-    addCourses(newCourse);
-  }
+  addCourses(newCourse);
 };
+//////////////////////////////
+//////////////////////////////
+//////////////////////////////
 
-createCourses();
-getCourses();
+//Obtener componentes HTML.
 
-console.log(courses);
+let $tittle = document.getElementById("tittle_course");
+let $vacacies = document.getElementById("vacacies_course");
+let $btn_create = document.getElementById("btn_createCourse");
+let $table_container = document.getElementById("table_container");
+
+console.log($tittle);
+console.log($vacacies);
+
+$btn_create.addEventListener("click", (event) => {
+  console.log($tittle.value);
+  console.log($vacacies.value);
+
+  createCourses($tittle.value, $vacacies.value);
+  console.log(courses);
+  clearInput();
+
+  generateTableCourses();
+});
+
+function clearInput() {
+  $tittle.value = "";
+  $vacacies.value = 1;
+}
+
+function generateTableCourses() {
+  let tbody = document.getElementById("tbody");
+
+  let row = document.createElement("tr");
+  let count = courses.length - 1;
+
+  for (const key in courses[count]) {
+    let cell = document.createElement("td");
+    if (key !== "id") {
+      let celldata = document.createTextNode(courses[count][key]);
+      cell.appendChild(celldata);
+      row.appendChild(cell);
+    }
+  }
+
+  tbody.appendChild(row);
+}

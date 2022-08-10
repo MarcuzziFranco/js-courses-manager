@@ -4,8 +4,32 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Courses manager</title>
-    <script src="main.js"></script>
   </head>
-  <body></body>
+  <body>
+    <div class="form-container">
+      <div>
+        <label>Nombre curso</label>
+        <input type="text" id="tittle_course" />
+        <label>Vacantes</label>
+        <input type="number" id="vacacies_course" value="1" min="1" max="100" />
+        <input type="submit" id="btn_createCourse" value="Crear curso" />
+      </div>
+      <div>
+        <div id="table_container">
+          <h3>Lista cursos creados</h3>
+          <table>
+            <thead>
+              <th>Nombre Curso</th>
+              <th>Vacantes</th>
+              <th>Inscriptos</th>
+            </thead>
+            <tbody id="tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
 </html>
