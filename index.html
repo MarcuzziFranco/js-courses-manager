@@ -8,28 +8,25 @@
     <title>Courses manager</title>
   </head>
   <body>
-    <div class="form-container">
-      <div>
-        <label>Nombre curso</label>
-        <input type="text" id="tittle_course" />
-        <label>Vacantes</label>
-        <input type="number" id="vacacies_course" value="1" min="1" max="100" />
-        <input type="submit" id="btn_createCourse" value="Crear curso" />
-      </div>
-      <div>
-        <div id="table_container">
-          <h3>Lista cursos creados</h3>
-          <table>
-            <thead>
-              <th>Nombre Curso</th>
-              <th>Vacantes</th>
-              <th>Inscriptos</th>
-            </thead>
-            <tbody id="tbody"></tbody>
-          </table>
-        </div>
-      </div>
+    <div class="login">
+      <h1>Login</h1>
+
+      <input
+        type="text"
+        id="userName"
+        placeholder="Username"
+        required="required"
+      />
+      <input
+        type="password"
+        id="userPassword"
+        placeholder="Password"
+        required="required"
+      />
+      <input type="submit" id="btn_login" value="Login" />
     </div>
+
+    <a href="Pages/loadCourses.html">aaaa</a>
     <script type="module" src="js/main.js"></script>
   </body>
 </html>
