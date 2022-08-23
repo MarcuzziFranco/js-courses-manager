@@ -9,3 +9,25 @@ td {
   padding: 10px 20px;
   border: 1px solid #000;
 }
+
+/*********************************/
+
+.container-gretting {
+  display: flex;
+  align-items: center;
+}
+
+.container-gretting h2 {
+  padding: 10px;
+}
+
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-bar div {
+  font-weight: bold;
+  font-size: 30px;
+}

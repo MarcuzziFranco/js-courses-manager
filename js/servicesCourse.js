@@ -1,3 +1,8 @@
+import {
+  saveCourseListLocalStorage,
+  getCoursesListLocalStorage,
+} from "./serviceLocalStorage.js";
+
 let courses = [];
 
 //SERVICIOS
@@ -10,7 +15,8 @@ export const getCourses = () => {
 };
 
 export const getCoursesList = () => {
-  return courses;
+  courses = getCoursesListLocalStorage();
+  return courses !== null ? courses : [];
 };
 
 //Obtiene un curso especifico.
@@ -20,10 +26,14 @@ export const getCourse = (id) => {
 
 //Permite agregar un curso a la lista.
 export const addCourses = (newCourse) => {
+  courses = getCoursesList();
   let newId = courses.length;
   newCourse.id = newId;
   if (courses.length > 0) newId = courses[courses.length - 1].id + 1;
   courses.push(newCourse);
+
+  saveCourseListLocalStorage(courses);
+  courses = getCoursesList();
 };
 
 //Permite eliminar un curos de la lista.

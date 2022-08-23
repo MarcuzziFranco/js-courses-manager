@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css" />
+    <title>Studen</title>
+  </head>
+  <body>
+    <div class="nav-bar">
+      <div>Seccion Estudiantes</div>
+      <button id="logout">Salir</button>
+    </div>
+    <div class="container-gretting">
+      <h2>Bienvenido</h2>
+      <h2 id="userName"></h2>
+      <h2 id="userLastName"></h2>
+    </div>
+    <div id="table_container">
+      <h3>Lista cursos disponobles para inscripcion</h3>
+      <table>
+        <thead>
+          <th>Nombre Curso</th>
+          <th>Vacantes</th>
+          <th>Inscriptos</th>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+  </body>
+  <script type="module" src="/js/studen.js"></script>
+</html>
