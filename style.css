@@ -31,3 +31,7 @@ td {
   font-weight: bold;
   font-size: 30px;
 }
+
+#error-login {
+  color: rgb(231, 36, 2);
+}

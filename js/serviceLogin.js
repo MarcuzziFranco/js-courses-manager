@@ -16,13 +16,13 @@ export const checkCredentialUser = (username, password) => {
     saveUserDataLocalStorage(userLogin);
     return userLogin.typeUser;
   }
-  alert("Error en los datos del usuario");
+
   return null;
 };
 
 export const logout = () => {
   window.localStorage.removeItem(USER_NAME);
   window.localStorage.removeItem(USER_LAST_NAME);
-  window.localStorage.removeItem(USER_TYPE);
+  window.localStorage.removeItem(USER_NAME);
   window.location.href = "http://127.0.0.1:5500/";
 };
